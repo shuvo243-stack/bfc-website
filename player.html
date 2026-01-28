@@ -4,36 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Profile | BFC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Roboto', sans-serif; background-color: #0f1215; color: #e0e0e0; margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: 50px auto; padding: 20px; }
+        /* RM THEME */
+        body { font-family: 'Montserrat', sans-serif; background-color: #f0f2f5; color: #001a4b; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 50px auto; padding: 20px; }
         
-        /* PROFILE CARD */
         .profile-card {
-            background: #1e2329; border: 1px solid #333; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.1); display: flex; flex-wrap: wrap;
+            background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 26, 75, 0.1); display: flex; flex-wrap: wrap;
+            border-top: 5px solid #FEBE10; /* Gold Top Border */
         }
         .profile-img-section {
-            flex: 1; background: linear-gradient(135deg, #004d00, #000); display: flex;
+            flex: 1; background: #e6e6e6; display: flex;
             align-items: center; justify-content: center; padding: 40px; min-width: 300px;
         }
         .profile-img {
-            width: 200px; height: 200px; border-radius: 50%; border: 5px solid #00ff88; object-fit: cover;
+            width: 220px; height: 220px; border-radius: 50%; border: 6px solid white; object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .info-section { flex: 1.5; padding: 40px; }
+        .info-section { flex: 1.5; padding: 40px; background: white; }
         
-        h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; margin: 0; color: white; text-transform: uppercase; }
-        .jersey-no { color: #00ff88; font-size: 1.5rem; font-family: 'Oswald', sans-serif; margin-bottom: 20px; display: block; }
-        .stat-row { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 15px 0; }
-        .stat-label { color: #888; font-weight: bold; }
-        .stat-value { color: white; font-weight: 500; }
+        h1 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; margin: 0; color: #001a4b; text-transform: uppercase; line-height: 1; }
+        .jersey-no { color: #FEBE10; font-size: 2rem; font-family: 'Oswald', sans-serif; margin-bottom: 10px; display: block; font-weight: bold; }
+        .stat-row { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 20px 0; }
+        .stat-label { color: #888; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; }
+        .stat-value { color: #001a4b; font-weight: 700; font-size: 1.1rem; }
         
         .back-btn {
-            display: inline-block; margin-top: 30px; padding: 10px 25px; background: #00ff88; color: #000;
-            text-decoration: none; font-weight: bold; border-radius: 5px; font-family: 'Oswald', sans-serif;
+            display: inline-block; margin-top: 30px; padding: 12px 30px; 
+            background: #001a4b; color: white;
+            text-decoration: none; font-weight: bold; border-radius: 4px; 
+            font-family: 'Oswald', sans-serif; letter-spacing: 1px;
+            transition: 0.3s;
         }
-        .back-btn:hover { background: white; }
+        .back-btn:hover { background: #FEBE10; color: #001a4b; }
     </style>
 </head>
 <body>
@@ -41,28 +46,24 @@
     <div class="container">
         <div class="profile-card">
             <div class="profile-img-section">
-                <img src="https://via.placeholder.com/200/004d00/ffffff?text=BFC" id="p-img" class="profile-img">
+                <img src="https://via.placeholder.com/200/001a4b/ffffff?text=BFC" id="p-img" class="profile-img">
             </div>
             <div class="info-section">
-                <span class="jersey-no" id="p-jersey">JERSEY: --</span>
+                <span class="jersey-no" id="p-jersey">#--</span>
                 <h1 id="p-name">Loading...</h1>
-                <p style="color: #aaa; margin-top: 5px;">Bottola Football Club Player</p>
+                <p style="color: #666; margin-top: 5px; font-weight: 500;">BFC FIRST TEAM</p>
 
                 <div class="stat-row">
-                    <span class="stat-label">POSITION</span>
+                    <span class="stat-label">Position</span>
                     <span class="stat-value" id="p-pos">--</span>
                 </div>
                 <div class="stat-row">
-                    <span class="stat-label">AGE</span>
-                    <span class="stat-value" id="p-age">-- Years</span>
+                    <span class="stat-label">Nationality</span>
+                    <span class="stat-value">Bangladesh</span>
                 </div>
                 <div class="stat-row">
-                    <span class="stat-label">FAVORITE TEAM</span>
-                    <span class="stat-value" id="p-fav">--</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">STATUS</span>
-                    <span class="stat-value">Active Squad Member</span>
+                    <span class="stat-label">Status</span>
+                    <span class="stat-value">Available</span>
                 </div>
 
                 <a href="index.html" class="back-btn">← BACK TO SQUAD</a>
@@ -71,7 +72,6 @@
     </div>
 
     <script>
-        // --- UPDATED PLAYER DATABASE ---
         const players = {
             1: { name: "SHUVO", pos: "Midfielder" },
             2: { name: "ZIHAD", pos: "Striker" },
@@ -107,23 +107,15 @@
             32: { name: "OVI", pos: "Defender" }
         };
 
-        // Get ID from URL
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
-        const urlName = params.get('name');
 
-        if(id) {
-            document.getElementById('p-jersey').innerText = "JERSEY: " + (id < 10 ? '0'+id : id);
-            
-            if(players[id]) {
-                document.getElementById('p-name').innerText = players[id].name;
-                document.getElementById('p-pos').innerText = players[id].pos;
-                // Default placeholders for Age/Fav Team (Edit in code if needed)
-                document.getElementById('p-age').innerText = "20 Years"; 
-                document.getElementById('p-fav').innerText = "BFC"; 
-            } else {
-                document.getElementById('p-name').innerText = urlName || "Unknown Player";
-            }
+        if(id && players[id]) {
+            document.getElementById('p-jersey').innerText = "#" + (id < 10 ? '0'+id : id);
+            document.getElementById('p-name').innerText = players[id].name;
+            document.getElementById('p-pos').innerText = players[id].pos;
+        } else {
+            document.getElementById('p-name').innerText = "Player Not Found";
         }
     </script>
 </body>
