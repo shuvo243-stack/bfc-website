@@ -6,115 +6,69 @@
     <title>Player Profile | BFC</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* RM THEME MATCHING INDEX.HTML */
         body { font-family: 'Montserrat', sans-serif; background-color: #f5f6fa; color: #001a4b; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 60px auto; padding: 20px; display: flex; justify-content: center; min-height: 80vh; }
         
-        /* Centered Container */
-        .container { 
-            max-width: 900px; margin: 60px auto; padding: 20px; 
-            display: flex; justify-content: center; align-items: center; min-height: 80vh;
-        }
-        
-        /* PREMIUM CARD STYLE */
         .profile-card {
             background: white; width: 100%; border-radius: 15px; overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 26, 75, 0.15); display: flex; flex-wrap: wrap;
             border: 1px solid #eee; position: relative;
         }
-        
-        /* Gold Accent Line Top */
         .profile-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
             background: linear-gradient(90deg, #001a4b, #FEBE10, #001a4b);
         }
 
-        /* Image Section */
         .profile-img-section {
             flex: 1; background: #f0f2f5; display: flex; flex-direction: column;
             align-items: center; justify-content: center; padding: 50px; min-width: 300px;
             border-right: 1px solid #eee;
         }
-        
-        /* --- FIX FOR HEAD CROP --- */
         .profile-img {
             width: 240px; height: 240px; border-radius: 50%; 
-            border: 6px solid white; 
-            object-fit: cover;
-            object-position: top center; /* This line ensures the head is visible */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-            margin-bottom: 20px;
+            border: 6px solid white; object-fit: cover;
+            object-position: top center; /* Head Crop Fix */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px;
         }
-        /* ------------------------- */
-
         .jersey-badge {
             background: #FEBE10; color: #001a4b; padding: 5px 20px; border-radius: 20px;
             font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: bold;
-            box-shadow: 0 4px 10px rgba(254, 190, 16, 0.4);
         }
 
-        /* Info Section */
         .info-section { flex: 1.5; padding: 50px; background: white; }
-        
-        h1 { 
-            font-family: 'Oswald', sans-serif; font-size: 3.5rem; margin: 0; 
-            color: #001a4b; text-transform: uppercase; line-height: 1.1; 
-            letter-spacing: 1px;
-        }
-        
+        h1 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; margin: 0; color: #001a4b; text-transform: uppercase; line-height: 1; }
         .club-name { color: #888; font-weight: 600; letter-spacing: 2px; font-size: 0.9rem; margin-top: 10px; display: block; }
         
         .stats-grid { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
-        .stat-row { 
-            display: flex; justify-content: space-between; padding: 15px 0; 
-            border-bottom: 1px solid #f9f9f9; 
-        }
-        .stat-label { color: #555; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .stat-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f9f9f9; }
+        .stat-label { color: #555; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; }
         .stat-value { color: #001a4b; font-weight: 700; font-size: 1.2rem; font-family: 'Oswald', sans-serif; }
         
         .back-btn {
             display: inline-block; margin-top: 40px; padding: 12px 35px; 
-            background: #001a4b; color: white;
-            text-decoration: none; font-weight: bold; border-radius: 50px; 
-            font-family: 'Oswald', sans-serif; letter-spacing: 1px;
-            transition: 0.3s; text-transform: uppercase;
+            background: #001a4b; color: white; text-decoration: none; font-weight: bold; border-radius: 50px; 
+            font-family: 'Oswald', sans-serif; transition: 0.3s;
         }
-        .back-btn:hover { background: #FEBE10; color: #001a4b; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .back-btn:hover { background: #FEBE10; color: #001a4b; }
         
-        /* Mobile */
-        @media (max-width: 768px) {
-            .profile-card { flex-direction: column; }
-            .profile-img-section { border-right: none; border-bottom: 1px solid #eee; }
-            h1 { font-size: 2.5rem; }
-        }
+        @media (max-width: 768px) { .profile-card { flex-direction: column; } .profile-img-section { border-right: none; } }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="profile-card">
             <div class="profile-img-section">
-                <img src="" onerror="this.src='https://via.placeholder.com/250/001a4b/ffffff?text=NO+IMAGE'" id="p-img" class="profile-img">
+                <img src="" onerror="this.src='https://via.placeholder.com/250'" id="p-img" class="profile-img">
                 <div class="jersey-badge" id="p-jersey">#--</div>
             </div>
             <div class="info-section">
                 <span class="club-name">BOTTOLA FOOTBALL CLUB</span>
                 <h1 id="p-name">Loading...</h1>
-                
                 <div class="stats-grid">
-                    <div class="stat-row">
-                        <span class="stat-label">Position</span>
-                        <span class="stat-value" id="p-pos">--</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Nationality</span>
-                        <span class="stat-value">BANGLADESH</span>
-                    </div>
-                    <div class="stat-row">
-                        <span class="stat-label">Current Status</span>
-                        <span class="stat-value" style="color: #2ecc71;">ACTIVE</span>
-                    </div>
+                    <div class="stat-row"><span class="stat-label">Position</span><span class="stat-value" id="p-pos">--</span></div>
+                    <div class="stat-row"><span class="stat-label">Nationality</span><span class="stat-value">BANGLADESH</span></div>
+                    <div class="stat-row"><span class="stat-label">Status</span><span class="stat-value" style="color: #2ecc71;">ACTIVE</span></div>
                 </div>
-
                 <a href="index.html" class="back-btn">← Back to Squad</a>
             </div>
         </div>
@@ -122,52 +76,25 @@
 
     <script>
         const players = {
-            1: { name: "SHUVO", pos: "Midfielder" },
-            2: { name: "ZIHAD", pos: "Striker" },
-            3: { name: "SABBIR", pos: "Winger" },
-            4: { name: "TAREK", pos: "Winger" },
-            5: { name: "AHAD", pos: "Defender" },
-            6: { name: "FOYSHAL", pos: "Defender" },
-            7: { name: "NAIMUL", pos: "Defender" },
-            8: { name: "ASIF", pos: "Goalkeeper" },
-            9: { name: "TABIB", pos: "Midfielder" },
-            10: { name: "NADIM", pos: "Defender" },
-            11: { name: "JAKIR", pos: "Defender" },
-            12: { name: "ARAFAT", pos: "Defender" },
-            13: { name: "TANZIM", pos: "Striker" },
-            14: { name: "RATUL", pos: "Defender" },
-            15: { name: "NEHAL", pos: "Winger" },
-            16: { name: "HAMIM", pos: "Midfielder" },
-            17: { name: "SHAHRIA", pos: "Goalkeeper" },
-            18: { name: "SAMI", pos: "Midfielder" },
-            19: { name: "RAIHAN", pos: "Goalkeeper" },
-            20: { name: "MOSTAFIZ", pos: "Midfielder" },
-            21: { name: "DUROBO", pos: "Defender" },
-            22: { name: "MIRAJ", pos: "Defender" },
-            23: { name: "BORSHON", pos: "Striker" },
-            24: { name: "SABUJ", pos: "Goalkeeper" },
-            25: { name: "FAHIM", pos: "Defender" },
-            26: { name: "SIAM", pos: "Midfielder" },
-            27: { name: "WAHID", pos: "Defender" },
-            28: { name: "PIYASH", pos: "Midfielder" },
-            29: { name: "SAYEM", pos: "Defender" },
-            30: { name: "MANIK", pos: "Defender" },
-            31: { name: "NADIM", pos: "Defender" },
-            32: { name: "OVI", pos: "Defender" }
+            1: { name: "SHUVO", pos: "Midfielder" }, 2: { name: "ZIHAD", pos: "Striker" }, 3: { name: "SABBIR", pos: "Winger" },
+            4: { name: "TAREK", pos: "Winger" }, 5: { name: "AHAD", pos: "Defender" }, 6: { name: "FOYSHAL", pos: "Defender" },
+            7: { name: "NAIMUL", pos: "Defender" }, 8: { name: "ASIF", pos: "Goalkeeper" }, 9: { name: "TABIB", pos: "Midfielder" },
+            10: { name: "NADIM", pos: "Defender" }, 11: { name: "JAKIR", pos: "Defender" }, 12: { name: "ARAFAT", pos: "Defender" },
+            13: { name: "TANZIM", pos: "Striker" }, 14: { name: "RATUL", pos: "Defender" }, 15: { name: "NEHAL", pos: "Winger" },
+            16: { name: "HAMIM", pos: "Midfielder" }, 17: { name: "SHAHRIA", pos: "Goalkeeper" }, 18: { name: "SAMI", pos: "Midfielder" },
+            19: { name: "RAIHAN", pos: "Goalkeeper" }, 20: { name: "MOSTAFIZ", pos: "Midfielder" }, 21: { name: "DUROBO", pos: "Defender" },
+            22: { name: "MIRAJ", pos: "Defender" }, 23: { name: "BORSHON", pos: "Striker" }, 24: { name: "SABUJ", pos: "Goalkeeper" },
+            25: { name: "FAHIM", pos: "Defender" }, 26: { name: "SIAM", pos: "Midfielder" }, 27: { name: "WAHID", pos: "Defender" },
+            28: { name: "PIYASH", pos: "Midfielder" }, 29: { name: "SAYEM", pos: "Defender" }, 30: { name: "MANIK", pos: "Defender" },
+            31: { name: "NADIM", pos: "Defender" }, 32: { name: "OVI", pos: "Defender" }
         };
-
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
-
         if(id && players[id]) {
             document.getElementById('p-jersey').innerText = "#" + (id < 10 ? '0'+id : id);
             document.getElementById('p-name').innerText = players[id].name;
             document.getElementById('p-pos').innerText = players[id].pos;
-            
-            // Image Load Logic (id.jpg)
             document.getElementById('p-img').src = id + ".jpg";
-        } else {
-            document.getElementById('p-name').innerText = "Player Not Found";
         }
     </script>
 </body>
