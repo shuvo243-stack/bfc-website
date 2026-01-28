@@ -34,12 +34,18 @@
             align-items: center; justify-content: center; padding: 50px; min-width: 300px;
             border-right: 1px solid #eee;
         }
+        
+        /* --- FIX FOR HEAD CROP --- */
         .profile-img {
             width: 240px; height: 240px; border-radius: 50%; 
-            border: 6px solid white; object-fit: cover;
+            border: 6px solid white; 
+            object-fit: cover;
+            object-position: top center; /* This line ensures the head is visible */
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
             margin-bottom: 20px;
         }
+        /* ------------------------- */
+
         .jersey-badge {
             background: #FEBE10; color: #001a4b; padding: 5px 20px; border-radius: 20px;
             font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: bold;
