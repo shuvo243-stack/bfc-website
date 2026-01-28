@@ -41,7 +41,6 @@
 
         /* --- 2. HEADER WITH TEAM PHOTO BACKGROUND --- */
         header {
-            /* 'team.jpg' is the background image name. Change it if needed */
             background: linear-gradient(rgba(0,26,75,0.7), rgba(0,26,75,0.7)), url('team.jpg'); 
             background-size: cover; background-position: center;
             color: white; padding: 100px 20px; text-align: center;
@@ -63,7 +62,7 @@
             content: ''; display: block; width: 80px; height: 5px; background: var(--accent); margin: 10px auto 0;
         }
 
-        /* --- 3. NEW PLAYER CARD DESIGN --- */
+        /* --- 3. PLAYER CARD DESIGN --- */
         .squad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
         .player-link { text-decoration: none; color: inherit; display: block; }
 
@@ -74,18 +73,12 @@
         }
         .player-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 26, 75, 0.2); }
 
-        /* Player Image */
         .p-photo {
             width: 100%; height: 250px; object-fit: cover; object-position: top;
-            background-color: #ddd; /* Fallback color */
+            background-color: #ddd;
         }
-        
-        /* Player Info */
         .p-info { padding: 15px; text-align: center; position: relative; }
-        
-        .p-name-row {
-            display: flex; justify-content: center; align-items: center; gap: 10px;
-        }
+        .p-name-row { display: flex; justify-content: center; align-items: center; gap: 10px; }
         .p-name { font-size: 1.3rem; font-weight: 700; margin: 0; color: var(--primary); }
         .p-jersey {
             background: var(--accent); color: var(--primary); padding: 2px 8px;
@@ -93,7 +86,16 @@
         }
         .p-role { color: #888; font-size: 0.85rem; font-weight: 600; margin-top: 5px; text-transform: uppercase; }
 
-        /* --- 4. ACHIEVEMENTS SECTION --- */
+        /* --- SEE ALL BUTTON --- */
+        .see-all-btn {
+            background: var(--primary); color: white; padding: 15px 40px; 
+            border: 2px solid var(--accent); border-radius: 50px;
+            font-size: 1rem; font-weight: bold; cursor: pointer; transition: 0.3s;
+            margin-top: 40px; display: inline-block; font-family: 'Oswald', sans-serif;
+        }
+        .see-all-btn:hover { background: var(--accent); color: var(--primary); }
+
+        /* --- 4. ACHIEVEMENTS & GALLERY --- */
         .achievements-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; text-align: center; }
         .trophy-card {
             background: white; padding: 30px; border-radius: 10px; width: 200px;
@@ -102,7 +104,6 @@
         .trophy-icon { font-size: 3rem; color: var(--accent); margin-bottom: 15px; }
         .trophy-count { font-size: 2.5rem; font-weight: bold; color: var(--primary); display: block; }
 
-        /* --- 5. TEAM GALLERY --- */
         .gallery-box {
             width: 100%; height: 400px; overflow: hidden; border-radius: 10px; position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -114,7 +115,6 @@
             color: white; padding: 15px; text-align: center;
         }
 
-        /* Footer */
         footer { background: var(--primary); padding: 40px; color: white; text-align: center; margin-top: 50px; }
     </style>
 </head>
@@ -141,47 +141,62 @@
     <div class="container">
         
         <h2 class="section-title" id="squad">THE SQUAD</h2>
+        
         <div class="squad-grid">
             <a href="player.html?id=1" class="player-link">
-                <div class="player-card">
-                    <img src="1.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" class="p-photo">
-                    <div class="p-info">
-                        <div class="p-name-row">
-                            <h3 class="p-name">SHUVO</h3>
-                            <span class="p-jersey">01</span>
-                        </div>
-                        <p class="p-role">Midfielder</p>
-                    </div>
+                <div class="player-card"><img src="1.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" class="p-photo">
+                    <div class="p-info"><div class="p-name-row"><h3 class="p-name">SHUVO</h3><span class="p-jersey">01</span></div><p class="p-role">Midfielder</p></div>
                 </div>
             </a>
-            
             <a href="player.html?id=2" class="player-link">
-                <div class="player-card">
-                    <img src="2.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" class="p-photo">
-                    <div class="p-info">
-                        <div class="p-name-row">
-                            <h3 class="p-name">ZIHAD</h3>
-                            <span class="p-jersey">02</span>
-                        </div>
-                        <p class="p-role">Striker</p>
-                    </div>
+                <div class="player-card"><img src="2.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" class="p-photo">
+                    <div class="p-info"><div class="p-name-row"><h3 class="p-name">ZIHAD</h3><span class="p-jersey">02</span></div><p class="p-role">Striker</p></div>
                 </div>
             </a>
-
             <a href="player.html?id=3" class="player-link">
-                <div class="player-card">
-                    <img src="3.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" class="p-photo">
-                    <div class="p-info">
-                        <div class="p-name-row">
-                            <h3 class="p-name">SABBIR</h3>
-                            <span class="p-jersey">03</span>
-                        </div>
-                        <p class="p-role">Winger</p>
-                    </div>
+                <div class="player-card"><img src="3.jpg" onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'" class="p-photo">
+                    <div class="p-info"><div class="p-name-row"><h3 class="p-name">SABBIR</h3><span class="p-jersey">03</span></div><p class="p-role">Winger</p></div>
                 </div>
             </a>
+        </div>
+
+        <div id="full-squad" class="squad-grid" style="display: none; margin-top: 25px;">
             
-            </div>
+            <a href="player.html?id=4" class="player-link"><div class="player-card"><img src="4.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">TAREK</h3><span class="p-jersey">04</span></div><p class="p-role">Winger</p></div></div></a>
+            <a href="player.html?id=5" class="player-link"><div class="player-card"><img src="5.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">AHAD</h3><span class="p-jersey">05</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=6" class="player-link"><div class="player-card"><img src="6.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">FOYSHAL</h3><span class="p-jersey">06</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=7" class="player-link"><div class="player-card"><img src="7.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">NAIMUL</h3><span class="p-jersey">07</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=8" class="player-link"><div class="player-card"><img src="8.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">ASIF</h3><span class="p-jersey">08</span></div><p class="p-role">Goalkeeper</p></div></div></a>
+            <a href="player.html?id=9" class="player-link"><div class="player-card"><img src="9.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">TABIB</h3><span class="p-jersey">09</span></div><p class="p-role">Midfielder</p></div></div></a>
+            <a href="player.html?id=10" class="player-link"><div class="player-card"><img src="10.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">NADIM</h3><span class="p-jersey">10</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=11" class="player-link"><div class="player-card"><img src="11.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">JAKIR</h3><span class="p-jersey">11</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=12" class="player-link"><div class="player-card"><img src="12.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">ARAFAT</h3><span class="p-jersey">12</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=13" class="player-link"><div class="player-card"><img src="13.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">TANZIM</h3><span class="p-jersey">13</span></div><p class="p-role">Striker</p></div></div></a>
+            <a href="player.html?id=14" class="player-link"><div class="player-card"><img src="14.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">RATUL</h3><span class="p-jersey">14</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=15" class="player-link"><div class="player-card"><img src="15.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">NEHAL</h3><span class="p-jersey">15</span></div><p class="p-role">Winger</p></div></div></a>
+            <a href="player.html?id=16" class="player-link"><div class="player-card"><img src="16.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">HAMIM</h3><span class="p-jersey">16</span></div><p class="p-role">Midfielder</p></div></div></a>
+            <a href="player.html?id=17" class="player-link"><div class="player-card"><img src="17.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">SHAHRIA</h3><span class="p-jersey">17</span></div><p class="p-role">Goalkeeper</p></div></div></a>
+            <a href="player.html?id=18" class="player-link"><div class="player-card"><img src="18.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">SAMI</h3><span class="p-jersey">18</span></div><p class="p-role">Midfielder</p></div></div></a>
+            <a href="player.html?id=19" class="player-link"><div class="player-card"><img src="19.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">RAIHAN</h3><span class="p-jersey">19</span></div><p class="p-role">Goalkeeper</p></div></div></a>
+            <a href="player.html?id=20" class="player-link"><div class="player-card"><img src="20.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">MOSTAFIZ</h3><span class="p-jersey">20</span></div><p class="p-role">Midfielder</p></div></div></a>
+            <a href="player.html?id=21" class="player-link"><div class="player-card"><img src="21.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">DUROBO</h3><span class="p-jersey">21</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=22" class="player-link"><div class="player-card"><img src="22.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">MIRAJ</h3><span class="p-jersey">22</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=23" class="player-link"><div class="player-card"><img src="23.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">BORSHON</h3><span class="p-jersey">23</span></div><p class="p-role">Striker</p></div></div></a>
+            <a href="player.html?id=24" class="player-link"><div class="player-card"><img src="24.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">SABUJ</h3><span class="p-jersey">24</span></div><p class="p-role">Goalkeeper</p></div></div></a>
+            <a href="player.html?id=25" class="player-link"><div class="player-card"><img src="25.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">FAHIM</h3><span class="p-jersey">25</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=26" class="player-link"><div class="player-card"><img src="26.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">SIAM</h3><span class="p-jersey">26</span></div><p class="p-role">Midfielder</p></div></div></a>
+            <a href="player.html?id=27" class="player-link"><div class="player-card"><img src="27.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">WAHID</h3><span class="p-jersey">27</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=28" class="player-link"><div class="player-card"><img src="28.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">PIYASH</h3><span class="p-jersey">28</span></div><p class="p-role">Midfielder</p></div></div></a>
+            <a href="player.html?id=29" class="player-link"><div class="player-card"><img src="29.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">SAYEM</h3><span class="p-jersey">29</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=30" class="player-link"><div class="player-card"><img src="30.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">MANIK</h3><span class="p-jersey">30</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=31" class="player-link"><div class="player-card"><img src="31.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">NADIM</h3><span class="p-jersey">31</span></div><p class="p-role">Defender</p></div></div></a>
+            <a href="player.html?id=32" class="player-link"><div class="player-card"><img src="32.jpg" class="p-photo"><div class="p-info"><div class="p-name-row"><h3 class="p-name">OVI</h3><span class="p-jersey">32</span></div><p class="p-role">Defender</p></div></div></a>
+
+        </div>
+
+        <div style="text-align: center;">
+            <button onclick="toggleSquad()" id="squad-btn" class="see-all-btn">SEE FULL SQUAD ↓</button>
+        </div>
 
         <br><br>
         <h2 class="section-title" id="achievements">CLUB ACHIEVEMENTS</h2>
@@ -217,6 +232,23 @@
     <footer>
         <p>&copy; 2026 BOTTOLA FOOTBALL CLUB | HALA BFC</p>
     </footer>
+
+    <script>
+        function toggleSquad() {
+            var hiddenSquad = document.getElementById("full-squad");
+            var btn = document.getElementById("squad-btn");
+
+            if (hiddenSquad.style.display === "none") {
+                hiddenSquad.style.display = "grid";
+                btn.innerText = "SHOW LESS ↑";
+            } else {
+                hiddenSquad.style.display = "none";
+                btn.innerText = "SEE FULL SQUAD ↓";
+                // Optional: Scroll back up to squad section
+                document.getElementById("squad").scrollIntoView({behavior: "smooth"});
+            }
+        }
+    </script>
 
 </body>
 </html>
